@@ -1,0 +1,27 @@
+SELinux "lost label" inconsistency
+==================================
+
+To try it out:
+
+    $ make
+    $ sudo dnf install noarch/lostlabel-0.1-1.noarch.rpm
+
+Check that the policy was properly installed:
+
+    $ sudo semanage fcontext -l | grep lostlabel
+
+Finally, create a file inside nested directories:
+
+    $ sudo mkdir -p /var/lib/lostlabel/foo/bar
+    $ sudo touch /var/lib/lostlabel/foo/bar/baz
+    $ sudo restorecon -rv /var/lib/lostlabel
+
+This will show that everything was labeled lostlabel_var_lib_t and then
+"restored" to the more granular types. Since everything under lostlabel
+was just created, they never had the correct labels in the first place.
+
+To clean it up:
+
+    $ sudo dnf remove lostlabel
+
+It should remove everything cleanly from the system, hopefully.

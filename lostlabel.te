@@ -1,0 +1,9 @@
+policy_module(lostlabel, 0.1)
+
+type lostlabel_var_lib_t;
+type lostlabel_foo_var_lib_t;
+type lostlabel_bar_var_lib_t;
+
+files_type(lostlabel_var_lib_t)
+files_type(lostlabel_foo_var_lib_t)
+files_type(lostlabel_bar_var_lib_t)

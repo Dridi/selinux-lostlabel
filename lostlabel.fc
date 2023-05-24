@@ -1,0 +1,3 @@
+/var/lib/lostlabel(/.*)?         gen_context(system_u:object_r:lostlabel_var_lib_t,s0)
+/var/lib/lostlabel/foo(/.*)?     gen_context(system_u:object_r:lostlabel_foo_var_lib_t,s0)
+/var/lib/lostlabel/foo/bar(/.*)? gen_context(system_u:object_r:lostlabel_bar_var_lib_t,s0)
